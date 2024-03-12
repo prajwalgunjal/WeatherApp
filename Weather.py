@@ -10,10 +10,12 @@ async def get_weather(city):
         return f"Error: {e}"
 
 async def main():
-    city = input("Enter the name of the City: ")
-    temperature = await get_weather(city)
-    celsius = (temperature - 32) * 5/9
-    print(f"Current temperature in {city}: {celsius}")
-
+    try:
+        city = input("Enter the name of the City: ")
+        temperature = await get_weather(city)
+        celsius = (temperature - 32) * 5/9
+        print(f"Current temperature in {city}: {celsius}")
+    except Exception as e:
+        print(f"Exception in main{e}")
 if __name__ == "__main__":
     asyncio.run(main())
