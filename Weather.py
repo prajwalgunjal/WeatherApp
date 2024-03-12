@@ -12,7 +12,8 @@ async def get_weather(city):
 async def main():
     city = input("Enter the name of the City: ")
     temperature = await get_weather(city)
-    print(f"Current temperature in {city}: {temperature}")
+    celsius = (temperature - 32) * 5/9
+    print(f"Current temperature in {city}: {celsius}")
 
 if __name__ == "__main__":
     asyncio.run(main())
